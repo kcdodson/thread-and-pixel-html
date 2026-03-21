@@ -276,14 +276,33 @@
       background: none;
       border: none;
       padding: 4px;
+      z-index: 201;
+      position: relative;
     }
 
     .nav-toggle span {
       display: block;
       width: 24px;
       height: 1.5px;
+      background: var(--cream);
+      transition: transform 0.3s, opacity 0.3s, background 0.4s;
+      transform-origin: center;
+    }
+
+    #main-nav.scrolled .nav-toggle span {
       background: var(--ink);
-      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    /* hamburger → X when open */
+    .nav-toggle[aria-expanded="true"] span:nth-child(1) {
+      transform: translateY(6.5px) rotate(45deg);
+    }
+    .nav-toggle[aria-expanded="true"] span:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+    .nav-toggle[aria-expanded="true"] span:nth-child(3) {
+      transform: translateY(-6.5px) rotate(-45deg);
     }
 
     /* ── HERO ── */
@@ -1103,21 +1122,45 @@
         flex-direction: column;
         position: fixed;
         inset: 0;
-        background: var(--cream);
+        background: var(--forest);
         justify-content: center;
         align-items: center;
-        gap: 2rem;
+        gap: 2.25rem;
         z-index: 200;
       }
 
       .nav-links.open a {
-        font-size: 1.1rem;
-        opacity: 0.8;
+        font-size: clamp(1.1rem, 5vw, 1.4rem);
+        color: var(--cream) !important;
+        opacity: 0.75;
+        letter-spacing: 0.12em;
+      }
+
+      .nav-links.open a:hover { opacity: 1; }
+
+      .nav-links.open .nav-cta {
+        background: var(--copper) !important;
+        border: none !important;
+        opacity: 1 !important;
+        padding: 0.85rem 2.5rem !important;
+        font-size: 0.85rem !important;
       }
     }
 
     @media (max-width: 560px) {
       .footer-grid { grid-template-columns: 1fr; }
+
+      .hero-actions { flex-direction: column; align-items: flex-start; }
+
+      .services-grid { grid-template-columns: 1fr; }
+
+      .stat-box { padding: 1.75rem 1.5rem; }
+
+      .testimonials-grid { grid-template-columns: 1fr; }
+
+      .form-row { grid-template-columns: 1fr; }
+
+      .why-list { gap: 0; }
     }
   </style>
 </head>
