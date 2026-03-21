@@ -276,8 +276,6 @@
       background: none;
       border: none;
       padding: 4px;
-      z-index: 201;
-      position: relative;
     }
 
     .nav-toggle span {
@@ -291,18 +289,6 @@
 
     #main-nav.scrolled .nav-toggle span {
       background: var(--ink);
-    }
-
-    /* hamburger → X when open */
-    .nav-toggle[aria-expanded="true"] span:nth-child(1) {
-      transform: translateY(6.5px) rotate(45deg);
-    }
-    .nav-toggle[aria-expanded="true"] span:nth-child(2) {
-      opacity: 0;
-      transform: scaleX(0);
-    }
-    .nav-toggle[aria-expanded="true"] span:nth-child(3) {
-      transform: translateY(-6.5px) rotate(-45deg);
     }
 
     /* ── HERO ── */
@@ -1094,13 +1080,64 @@
     .reveal-delay-3 { transition-delay: 0.3s; }
     .reveal-delay-4 { transition-delay: 0.4s; }
 
+    /* ── MOBILE MENU OVERLAY ── */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: var(--forest);
+      z-index: 500;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 2.25rem;
+    }
+
+    .mobile-menu.open { display: flex; }
+
+    .mobile-menu a {
+      font-size: clamp(1.2rem, 5vw, 1.5rem);
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--cream);
+      opacity: 0.7;
+      transition: opacity 0.2s;
+      text-decoration: none;
+    }
+
+    .mobile-menu a:hover { opacity: 1; }
+
+    .mobile-menu .nav-cta {
+      background: var(--copper) !important;
+      border: 1px solid var(--copper) !important;
+      color: var(--cream) !important;
+      opacity: 1 !important;
+      padding: 0.85rem 2.5rem !important;
+    }
+
+    .mobile-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--cream);
+      opacity: 0.6;
+      padding: 8px;
+      line-height: 1;
+      font-size: 1.75rem;
+      transition: opacity 0.2s;
+    }
+
+    .mobile-close:hover { opacity: 1; }
+
     /* ── MOBILE ── */
     @media (max-width: 900px) {
       #hero { grid-template-columns: 1fr; }
 
-      .hero-visual {
-        display: none;
-      }
+      .hero-visual { display: none; }
 
       .services-header { grid-template-columns: 1fr; gap: 1rem; }
       .services-grid { grid-template-columns: 1fr; }
@@ -1116,51 +1153,13 @@
 
       .nav-links { display: none; }
       .nav-toggle { display: flex; }
-
-      .nav-links.open {
-        display: flex;
-        flex-direction: column;
-        position: fixed;
-        inset: 0;
-        background: var(--forest);
-        justify-content: center;
-        align-items: center;
-        gap: 2.25rem;
-        z-index: 200;
-      }
-
-      .nav-links.open a {
-        font-size: clamp(1.1rem, 5vw, 1.4rem);
-        color: var(--cream) !important;
-        opacity: 0.75;
-        letter-spacing: 0.12em;
-      }
-
-      .nav-links.open a:hover { opacity: 1; }
-
-      .nav-links.open .nav-cta {
-        background: var(--copper) !important;
-        border: none !important;
-        opacity: 1 !important;
-        padding: 0.85rem 2.5rem !important;
-        font-size: 0.85rem !important;
-      }
     }
 
     @media (max-width: 560px) {
       .footer-grid { grid-template-columns: 1fr; }
-
       .hero-actions { flex-direction: column; align-items: flex-start; }
-
-      .services-grid { grid-template-columns: 1fr; }
-
       .stat-box { padding: 1.75rem 1.5rem; }
-
-      .testimonials-grid { grid-template-columns: 1fr; }
-
       .form-row { grid-template-columns: 1fr; }
-
-      .why-list { gap: 0; }
     }
   </style>
 </head>
@@ -1186,6 +1185,15 @@
       </div>
     </div>
   </nav>
+
+  <!-- ── MOBILE MENU ── -->
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <button class="mobile-close" id="mobile-close" aria-label="Close menu">&#x2715;</button>
+    <a href="#services" class="mobile-link">Services</a>
+    <a href="#why" class="mobile-link">About</a>
+    <a href="#testimonials" class="mobile-link">Work</a>
+    <a href="#cta" class="nav-cta mobile-link">Start a Project</a>
+  </div>
 
   <!-- ── HERO ── -->
   <section id="hero" aria-labelledby="hero-heading">
@@ -1607,17 +1615,30 @@
 
     // Mobile nav toggle
     const toggle = document.getElementById('nav-toggle');
-    const navLinks = document.getElementById('nav-links');
-    toggle.addEventListener('click', () => {
-      const open = navLinks.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', open);
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileClose = document.getElementById('mobile-close');
+
+    function openMenu() {
+      mobileMenu.classList.add('open');
+      toggle.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+      mobileMenu.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    toggle.addEventListener('click', openMenu);
+    mobileClose.addEventListener('click', closeMenu);
+
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', closeMenu);
     });
 
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('open');
-        toggle.setAttribute('aria-expanded', false);
-      });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeMenu();
     });
 
     // Contact form
