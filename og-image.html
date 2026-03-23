@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OG Image — Thread & Pixel</title>
+  <link rel="stylesheet" href="/fonts/fonts.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      width: 1200px;
+      height: 630px;
+      overflow: hidden;
+      background: #1e3a2f;
+      font-family: 'DM Sans', system-ui, sans-serif;
+    }
+
+    /* grid texture */
+    .bg-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255,255,255,0.04) 39px, rgba(255,255,255,0.04) 40px),
+        repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255,255,255,0.04) 39px, rgba(255,255,255,0.04) 40px);
+    }
+
+    /* glow */
+    .bg-glow {
+      position: absolute;
+      bottom: -120px;
+      right: -80px;
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(181,102,42,0.2) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .bg-glow-2 {
+      position: absolute;
+      top: -100px;
+      left: -100px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(61,92,58,0.5) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    /* layout */
+    .card {
+      position: relative;
+      width: 1200px;
+      height: 630px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 64px 80px 60px;
+      z-index: 2;
+    }
+
+    /* top row */
+    .top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+
+    .logo-mark {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+      width: 52px;
+      height: 52px;
+    }
+
+    .logo-mark span {
+      display: block;
+      border-radius: 3px;
+    }
+
+    .logo-mark span:nth-child(1) { background: #b5662a; }
+    .logo-mark span:nth-child(2) { background: rgba(242,237,228,0.85); }
+    .logo-mark span:nth-child(3) { background: rgba(242,237,228,0.85); }
+    .logo-mark span:nth-child(4) { background: #b5662a; }
+
+    .location {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(242,237,228,0.45);
+    }
+
+    .location-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #b5662a;
+      opacity: 0.7;
+    }
+
+    /* middle — main content */
+    .middle {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 0 12px;
+    }
+
+    .eyebrow {
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #d4844a;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .eyebrow::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 1px;
+      background: #d4844a;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 92px;
+      font-weight: 300;
+      line-height: 0.95;
+      color: #f2ede4;
+      letter-spacing: -0.02em;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: #d4844a;
+    }
+
+    /* bottom row */
+    .bottom {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+
+    .tagline {
+      font-size: 17px;
+      font-weight: 300;
+      color: rgba(242,237,228,0.5);
+      letter-spacing: 0.02em;
+      line-height: 1.5;
+      max-width: 480px;
+    }
+
+    .services {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .service-tag {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(242,237,228,0.4);
+      padding: 6px 14px;
+      border: 1px solid rgba(242,237,228,0.1);
+      border-radius: 2px;
+    }
+
+    /* divider line */
+    .divider {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #b5662a 0%, #d4844a 40%, transparent 100%);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-grid"></div>
+  <div class="bg-glow"></div>
+  <div class="bg-glow-2"></div>
+
+  <div class="card">
+
+    <div class="top">
+      <div class="logo-mark" aria-hidden="true">
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <div class="location">
+        <span class="location-dot"></span>
+        Chattanooga, Tennessee
+      </div>
+    </div>
+
+    <div class="middle">
+      <p class="eyebrow">Web Design &amp; Development</p>
+      <h1>Thread<br><em>&amp; Pixel</em></h1>
+    </div>
+
+    <div class="bottom">
+      <p class="tagline">Beautiful, fast websites for<br>Chattanooga small businesses.</p>
+      <div class="services">
+        <span class="service-tag">Design</span>
+        <span class="service-tag">SEO</span>
+        <span class="service-tag">Maintenance</span>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+  </div>
+
+</body>
+</html>
