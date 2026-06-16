@@ -8,7 +8,7 @@
     </title>
     <meta
       name="description"
-      content="Thread &amp; Pixel builds beautiful, fast websites for Chattanooga small businesses. Local web design, SEO, and ongoing support — rooted in Chattanooga, built for growth."
+      content="Thread &amp; Pixel builds fast, beautiful websites for Chattanooga small businesses. Local web design, SEO, and real ongoing support — built to grow."
     />
     <meta
       name="keywords"
@@ -61,33 +61,72 @@
     <!-- Sitemap hint -->
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
 
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How much does a website cost in Chattanooga?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Most small business websites we build range from $1,500 to $6,000 depending on size and complexity. A clean 5-page site with a contact form typically runs $1,500–$2,500. E-commerce, booking systems, or custom features push that higher. We give you a clear, fixed quote before any work begins — no hourly surprises."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How long does a web design project take?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A typical small business site takes 3–6 weeks from kickoff to launch. We start with a discovery call to understand your business and goals, move into design and your review, then build and test everything before going live. Rush timelines are available for an additional fee."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do I need a website if I already have a Facebook page?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. You don't own your Facebook audience — if the algorithm changes or your account gets restricted, you lose access to your followers overnight. Your website is a permanent asset you control. It also shows up in Google search results, which Facebook pages rarely do for local service queries."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is local SEO and why does it matter for my Chattanooga business?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Local SEO is the practice of optimizing your online presence so you appear when people nearby search for what you offer — the Google map pack, local search results, and your Google Business Profile. Most people searching 'web design Chattanooga' click one of the first three results. Local SEO is how you get there."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you work with businesses outside Chattanooga?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Our focus is the greater Chattanooga metro area — including North Shore, Southside, East Brainerd, Hixson, Red Bank, Signal Mountain, and nearby cities like Cleveland, TN and Dalton, GA. We occasionally take on projects further afield when it's a great fit."
+            }
+          }
+        ]
+      }
+    </script>
+
     <!-- Fonts -->
+    <link rel="preload" href="/fonts/cormorant-garamond-normal-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/dm-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="/fonts/fonts.css" />
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "LocalBusiness",
+        "@type": ["LocalBusiness", "ProfessionalService"],
         "@id": "https://threadandpixel.com/#business",
         "name": "Thread & Pixel",
         "description": "Web design and development for Chattanooga small businesses. We build fast, beautiful, SEO-optimized websites that help local businesses grow their online presence.",
         "url": "https://threadandpixel.com",
         "telephone": "+1-423-314-5206",
         "email": "hello@threadandpixel.com",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "123 Market Street",
-          "addressLocality": "Chattanooga",
-          "addressRegion": "TN",
-          "postalCode": "37402",
-          "addressCountry": "US"
-        },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": 35.0456,
-          "longitude": -85.3097
-        },
         "areaServed": {
           "@type": "City",
           "name": "Chattanooga",
@@ -166,11 +205,6 @@
               }
             }
           ]
-        },
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "5",
-          "reviewCount": "24"
         },
         "sameAs": [
           "https://www.facebook.com/threadandpixel",
@@ -1172,6 +1206,63 @@
           background: var(--ink);
         }
       }
+      #faq {
+        background: var(--cream-dark);
+      }
+      .faq-header {
+        text-align: center;
+        margin-bottom: clamp(3rem, 6vw, 4.5rem);
+      }
+      .faq-header h2 {
+        margin-top: 0.5rem;
+      }
+      .faq-list {
+        max-width: 720px;
+        margin: 0 auto;
+      }
+      .faq-item {
+        border-bottom: 1px solid rgb(28 26 21 / 0.1);
+      }
+      .faq-item:first-child {
+        border-top: 1px solid rgb(28 26 21 / 0.1);
+      }
+      .faq-question {
+        font-family: var(--font-display);
+        font-size: 1.15rem;
+        font-weight: 600;
+        color: var(--forest);
+        padding: 1.5rem 2.5rem 1.5rem 0;
+        cursor: pointer;
+        list-style: none;
+        position: relative;
+        line-height: 1.3;
+      }
+      .faq-question::-webkit-details-marker {
+        display: none;
+      }
+      .faq-question::after {
+        content: "+";
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        font-family: var(--font-body);
+        font-size: 1.5rem;
+        font-weight: 300;
+        color: var(--copper);
+        transition: transform 0.3s;
+        line-height: 1;
+      }
+      .faq-item[open] .faq-question::after {
+        transform: translateY(-50%) rotate(45deg);
+      }
+      .faq-answer {
+        font-size: 0.95rem;
+        color: rgb(28 26 21 / 0.65);
+        line-height: 1.8;
+        padding-bottom: 1.5rem;
+        max-width: 64ch;
+      }
       @media (max-width: 560px) {
         .footer-grid {
           grid-template-columns: 1fr;
@@ -1202,6 +1293,7 @@
             <li><a href="#services">Services</a></li>
             <li><a href="#why">About</a></li>
             <li><a href="#testimonials">Work</a></li>
+            <li><a href="#faq">FAQ</a></li>
             <li><a href="#cta" class="nav-cta">Start a Project</a></li>
           </ul>
           <button
@@ -1239,7 +1331,7 @@
       <div class="hero-accent" aria-hidden="true"></div>
 
       <div class="hero-content">
-        <p class="hero-eyebrow">Chattanooga, Tennessee</p>
+        <p class="hero-eyebrow">Chattanooga Web Design &amp; Development</p>
         <h1 id="hero-heading">
           Your business,<br />
           <em>beautifully</em><br />
@@ -1693,6 +1785,38 @@
       </div>
     </section>
 
+    <!-- ── FAQ ── -->
+    <section id="faq" aria-labelledby="faq-heading">
+      <div class="container">
+        <div class="faq-header">
+          <p class="section-label" style="justify-content: center">Common questions</p>
+          <h2 id="faq-heading">What Chattanooga<br /><em>business owners</em> ask us</h2>
+        </div>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary class="faq-question">How much does a website cost in Chattanooga?</summary>
+            <p class="faq-answer">Most small business websites we build range from $1,500 to $6,000 depending on size and complexity. A clean 5-page site with a contact form typically runs $1,500–$2,500. E-commerce, booking systems, or custom features push that higher. We give you a clear, fixed quote before any work begins — no hourly surprises.</p>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">How long does a web design project take?</summary>
+            <p class="faq-answer">A typical small business site takes 3–6 weeks from kickoff to launch. We start with a discovery call to understand your business and goals, move into design and your review, then build and test everything before going live. Rush timelines are available for an additional fee.</p>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">Do I need a website if I already have a Facebook page?</summary>
+            <p class="faq-answer">Yes — and here's why it matters: you don't own your Facebook audience. If the algorithm changes or your account gets restricted, you can lose access to your followers overnight. Your website is a permanent asset you control. It also shows up in Google search results, which Facebook pages rarely do for local service queries.</p>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">What is local SEO and why does it matter for my Chattanooga business?</summary>
+            <p class="faq-answer">Local SEO is the practice of optimizing your online presence so you appear when people nearby search for what you offer. That means showing up in the Google map pack, ranking in local search results, and having a well-optimized Google Business Profile. Most people searching "plumber near me" or "web design Chattanooga" click one of the first three results — local SEO is how you get there.</p>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">Do you work with businesses outside Chattanooga?</summary>
+            <p class="faq-answer">Our focus is the greater Chattanooga metro area — including North Shore, Southside, East Brainerd, Hixson, Red Bank, Signal Mountain, and nearby cities like Cleveland, TN and Dalton, GA. We occasionally take on projects further afield when it's a great fit, so feel free to reach out.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
     <!-- ── CTA ── -->
     <section id="cta" aria-labelledby="cta-heading">
       <div class="container">
@@ -1790,11 +1914,11 @@
               <select id="contact-service" name="service">
                 <option value="" disabled selected>Select a service…</option>
                 <option value="New website">New website</option>
-                <option value="Redesign existing site">
-                  Redesign existing site
-                </option>
+                <option value="Redesign existing site">Redesign existing site</option>
                 <option value="SEO help">SEO help</option>
                 <option value="Maintenance plan">Maintenance plan</option>
+                <option value="AI Search Optimization">AI Search Optimization</option>
+                <option value="AI Integration">AI Integration</option>
                 <option value="Not sure yet">Not sure yet</option>
               </select>
             </div>
@@ -1851,7 +1975,7 @@
                   <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
                   <circle cx="12" cy="10" r="3" />
                 </svg>
-                <span>123 Market Street, Chattanooga, TN 37402</span>
+                <span>Chattanooga, TN — Serving the Greater Chattanooga Area</span>
               </div>
               <div class="footer-contact-item">
                 <svg
@@ -1894,10 +2018,10 @@
           <nav aria-label="Services navigation">
             <div class="footer-col-title">Services</div>
             <ul class="footer-links" role="list">
-              <li><a href="#services">Web Design</a></li>
-              <li><a href="#services">Web Development</a></li>
-              <li><a href="#services">Local SEO</a></li>
-              <li><a href="#services">Mobile Optimization</a></li>
+              <li><a href="/services/web-design-chattanooga/">Web Design</a></li>
+              <li><a href="/services/web-design-chattanooga/">Web Development</a></li>
+              <li><a href="/services/local-seo-chattanooga/">Local SEO</a></li>
+              <li><a href="/services/web-design-chattanooga/">Mobile Optimization</a></li>
               <li><a href="#services">Site Maintenance</a></li>
               <li><a href="#services">AI Search Optimization</a></li>
               <li><a href="#services">AI Integration</a></li>
@@ -1916,12 +2040,12 @@
           <div>
             <div class="footer-col-title">Serving</div>
             <ul class="footer-links" role="list">
-              <li><a href="#hero">Chattanooga, TN</a></li>
-              <li><a href="#hero">North Shore</a></li>
-              <li><a href="#hero">Southside</a></li>
-              <li><a href="#hero">East Brainerd</a></li>
-              <li><a href="#hero">Hixson</a></li>
-              <li><a href="#hero">Red Bank</a></li>
+              <li><a href="/services/web-design-chattanooga/">Chattanooga, TN</a></li>
+              <li><a href="/web-design/north-shore/">North Shore</a></li>
+              <li><a href="/web-design/southside/">Southside</a></li>
+              <li><a href="/web-design/east-brainerd/">East Brainerd</a></li>
+              <li><a href="/web-design/hixson/">Hixson</a></li>
+              <li><a href="/web-design/red-bank/">Red Bank</a></li>
             </ul>
           </div>
         </div>
