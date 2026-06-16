@@ -105,6 +105,14 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Portfolio -->
+  <url>
+    <loc>https://threadandpixel.com/work/</loc>
+    <lastmod>2026-06-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Blog -->
   <url>
     <loc>https://threadandpixel.com/blog/</loc>
