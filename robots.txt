@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
-Disallow:
+Disallow: /og-image.html
 
 Sitemap: https://threadandpixel.com/sitemap.xml

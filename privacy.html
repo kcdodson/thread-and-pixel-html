@@ -3,344 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Privacy Policy — Thread &amp; Pixel</title>
+  <title>Privacy Policy | Thread &amp; Pixel, Chattanooga Web Design</title>
   <meta name="description" content="Privacy Policy for Thread &amp; Pixel, a Chattanooga web design and development company.">
   <meta name="robots" content="noindex, follow">
   <link rel="canonical" href="https://threadandpixel.com/privacy">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="stylesheet" href="/fonts/fonts.css">
-
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --cream:       #f2ede4;
-      --cream-dark:  #e8e0d0;
-      --ink:         #1c1a15;
-      --forest:      #1e3a2f;
-      --copper:      #b5662a;
-      --copper-light:#d4844a;
-      --mist:        #8a9e8c;
-      --white:       #faf8f4;
-      --font-display:'Cormorant Garamond', Georgia, serif;
-      --font-body:   'DM Sans', system-ui, sans-serif;
-      --max-w:       1140px;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: var(--font-body);
-      font-weight: 300;
-      background: var(--cream);
-      color: var(--ink);
-      line-height: 1.7;
-    }
-
-    a { color: var(--forest); text-decoration: none; transition: color 0.2s; }
-    a:hover { color: var(--copper); }
-
-    .container {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding: 0 clamp(1.25rem, 5vw, 3rem);
-    }
-
-    /* ── NAV ── */
-    #main-nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      padding: 1.25rem 0;
-      background: rgba(242, 237, 228, 0.95);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 1px 0 rgba(28,26,21,0.08);
-    }
-
-    .nav-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .nav-logo {
-      font-family: var(--font-display);
-      font-size: 1.35rem;
-      font-weight: 600;
-      color: var(--forest);
-      text-decoration: none;
-    }
-
-    .nav-logo span { color: var(--copper); }
-
-    .nav-links {
-      display: flex;
-      gap: 2.25rem;
-      align-items: center;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-size: 0.8rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--ink);
-      opacity: 0.7;
-      transition: opacity 0.2s;
-    }
-
-    .nav-links a:hover { opacity: 1; color: var(--ink); }
-
-    .nav-cta {
-      background: var(--forest);
-      color: var(--cream) !important;
-      opacity: 1 !important;
-      padding: 0.6rem 1.4rem !important;
-      border-radius: 2px;
-      transition: background 0.2s !important;
-    }
-
-    .nav-cta:hover { background: var(--copper) !important; }
-
-    .nav-toggle {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      background: none;
-      border: none;
-      padding: 4px;
-    }
-
-    .nav-toggle span {
-      display: block;
-      width: 24px;
-      height: 1.5px;
-      background: var(--ink);
-    }
-
-    /* ── MOBILE MENU ── */
-    .mobile-menu {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: var(--forest);
-      z-index: 500;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 2.25rem;
-    }
-
-    .mobile-menu.open { display: flex; }
-
-    .mobile-menu a {
-      font-size: clamp(1.2rem, 5vw, 1.5rem);
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--cream);
-      opacity: 0.7;
-      transition: opacity 0.2s;
-    }
-
-    .mobile-menu a:hover { opacity: 1; }
-
-    .mobile-menu .nav-cta {
-      background: var(--copper) !important;
-      border: 1px solid var(--copper) !important;
-      color: var(--cream) !important;
-      opacity: 1 !important;
-      padding: 0.85rem 2.5rem !important;
-    }
-
-    .mobile-close {
-      position: absolute;
-      top: 1.5rem;
-      right: 1.5rem;
-      background: none;
-      border: none;
-      cursor: pointer;
-      color: var(--cream);
-      opacity: 0.6;
-      padding: 8px;
-      font-size: 1.75rem;
-      line-height: 1;
-      transition: opacity 0.2s;
-    }
-
-    .mobile-close:hover { opacity: 1; }
-
-    /* ── PAGE HEADER ── */
-    .page-header {
-      padding: 9rem 0 4rem;
-      background: var(--forest);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .page-header::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image:
-        repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255,255,255,0.025) 39px, rgba(255,255,255,0.025) 40px),
-        repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255,255,255,0.025) 39px, rgba(255,255,255,0.025) 40px);
-    }
-
-    .page-header-inner { position: relative; z-index: 2; }
-
-    .page-eyebrow {
-      font-size: 0.72rem;
-      font-weight: 500;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--copper-light);
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-
-    .page-eyebrow::before {
-      content: '';
-      display: block;
-      width: 2rem;
-      height: 1px;
-      background: var(--copper-light);
-    }
-
-    .page-header h1 {
-      font-family: var(--font-display);
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      font-weight: 300;
-      color: var(--cream);
-      line-height: 1.1;
-    }
-
-    .page-meta {
-      margin-top: 1rem;
-      font-size: 0.8rem;
-      color: rgba(242,237,228,0.4);
-      letter-spacing: 0.05em;
-    }
-
-    /* ── CONTENT ── */
-    .legal-content {
-      max-width: 740px;
-      padding: 5rem 0 6rem;
-    }
-
-    .legal-content h2 {
-      font-family: var(--font-display);
-      font-size: 1.6rem;
-      font-weight: 600;
-      color: var(--forest);
-      margin: 2.5rem 0 0.75rem;
-      line-height: 1.2;
-    }
-
-    .legal-content h2:first-child { margin-top: 0; }
-
-    .legal-content p {
-      font-size: 0.95rem;
-      color: rgba(28,26,21,0.7);
-      margin-bottom: 1rem;
-      line-height: 1.8;
-    }
-
-    .legal-content ul {
-      margin: 0.5rem 0 1rem 1.25rem;
-      list-style: disc;
-    }
-
-    .legal-content li {
-      font-size: 0.95rem;
-      color: rgba(28,26,21,0.7);
-      margin-bottom: 0.4rem;
-      line-height: 1.75;
-    }
-
-    .legal-content a {
-      color: var(--copper);
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
-
-    .legal-divider {
-      border: none;
-      border-top: 1px solid var(--cream-dark);
-      margin: 2.5rem 0;
-    }
-
-    /* ── FOOTER ── */
-    footer {
-      background: var(--ink);
-      padding: 3rem 0 2rem;
-    }
-
-    .footer-bottom {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    .footer-copy {
-      font-size: 0.75rem;
-      color: rgba(242,237,228,0.25);
-    }
-
-    .footer-legal {
-      display: flex;
-      gap: 1.5rem;
-    }
-
-    .footer-legal a {
-      font-size: 0.75rem;
-      color: rgba(242,237,228,0.25);
-      transition: color 0.2s;
-    }
-
-    .footer-legal a:hover { color: rgba(242,237,228,0.6); }
-
-    @media (max-width: 900px) {
-      .nav-links { display: none; }
-      .nav-toggle { display: flex; }
-    }
-  </style>
     <script defer data-domain="threadandpixel.com" src="https://analytics.kaceydodson.com/js/script.js"></script>
-</head>
-<body>
-
-  <nav id="main-nav" aria-label="Main navigation">
-    <div class="container">
-      <div class="nav-inner">
-        <a href="/" class="nav-logo">Thread <span>&amp;</span> Pixel</a>
-        <ul class="nav-links" role="list">
-          <li><a href="/#services">Services</a></li>
-          <li><a href="/#why">About</a></li>
-          <li><a href="/#testimonials">Work</a></li>
-          <li><a href="/#cta" class="nav-cta">Start a Project</a></li>
-        </ul>
-        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
-    </div>
-  </nav>
-
-  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Navigation menu">
-    <button class="mobile-close" id="mobile-close" aria-label="Close menu">&#x2715;</button>
-    <a href="/#services">Services</a>
-    <a href="/#why">About</a>
-    <a href="/#testimonials">Work</a>
-    <a href="/#cta" class="nav-cta">Start a Project</a>
-  </div>
-
-  <header class="page-header">
+    <meta property="og:type" content="website">
+      <meta property="og:url" content="https://threadandpixel.com/privacy">
+      <meta property="og:title" content="Privacy Policy | Thread &amp; Pixel, Chattanooga Web Design">
+      <meta property="og:description" content="Privacy Policy for Thread &amp; Pixel, a Chattanooga web design and development company.">
+      <meta property="og:image" content="https://threadandpixel.com/og-image.jpg">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
+      <meta property="og:image:alt" content="Thread &amp; Pixel — web design and development in Chattanooga, TN">
+      <meta property="og:locale" content="en_US">
+      <meta property="og:site_name" content="Thread &amp; Pixel">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Privacy Policy | Thread &amp; Pixel, Chattanooga Web Design">
+      <meta name="twitter:description" content="Privacy Policy for Thread &amp; Pixel, a Chattanooga web design and development company.">
+      <meta name="twitter:image" content="https://threadandpixel.com/og-image.jpg">
+      <link rel="preload" href="/fonts/fraunces-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/inter-tight-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/fraunces-italic-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/site.css">
+    <meta name="theme-color" content="#1e3a2f">
+    <script defer src="/assets/site.js"></script>
+  </head>
+<body class="no-js">
+  <a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><div class="wrap nav">
+  <a class="logo" href="/" aria-label="Thread &amp; Pixel home"><img src="/favicon.svg" width="30" height="30" alt="">Thread <em>&amp;</em> Pixel</a>
+  <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav-menu"><i></i><span class="sr-only">Menu</span></button>
+  <nav class="nav-menu" id="nav-menu" aria-label="Primary"><ul><li><a href="/services/">Services</a></li><li><a href="/work/">Work</a></li><li><a href="/web-design/">Areas</a></li><li><a href="/blog/">Blog</a></li><li><a href="/#faq">FAQ</a></li></ul><a class="btn nav-cta-top" href="/#cta">Start a Project <span class="arr" aria-hidden="true">→</span></a></nav>
+</div></header>
+<main id="main">
+  <div class="page-header"><svg class="thread" viewBox="0 0 1440 640" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+  <g><rect class="pix" x="1184" y="96" width="32" height="32" fill="#b5662a" style="animation-delay:1.7s"/><rect class="pix" x="1216" y="128" width="32" height="32" fill="#f2ede4" style="animation-delay:1.85s"/><rect class="pix" x="1248" y="96" width="32" height="32" fill="#8a9e8c" style="animation-delay:2s"/><rect class="pix" x="1216" y="64" width="32" height="32" fill="#b5662a" style="animation-delay:2.15s"/></g>
+  <path class="draw" style="--len:2400" d="M-20 560 C 220 560 260 420 470 430 S 760 600 940 470 S 1080 200 1230 240 S 1380 360 1460 300" fill="none" stroke="#d4844a" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M-20 560 C 220 560 260 420 470 430 S 760 600 940 470 S 1080 200 1230 240 S 1380 360 1460 300" fill="none" stroke="#1e3a2f" stroke-width="5" stroke-dasharray="2 14"/>
+</svg>
     <div class="container">
       <div class="page-header-inner">
         <p class="page-eyebrow">Legal</p>
@@ -348,17 +50,13 @@
         <p class="page-meta">Last updated: March 2026</p>
       </div>
     </div>
-  </header>
-
+  </div>
   <main>
     <div class="container">
       <div class="legal-content">
-
         <h2>Who We Are</h2>
         <p>Thread &amp; Pixel ("we," "us," or "our") is a web design and development company based in Chattanooga, Tennessee. Our website is <a href="https://threadandpixel.com">threadandpixel.com</a>. Questions about this policy can be sent to <a href="mailto:hello@threadandpixel.com">hello@threadandpixel.com</a>.</p>
-
         <hr class="legal-divider">
-
         <h2>Information We Collect</h2>
         <p>We only collect information you voluntarily provide through our contact form:</p>
         <ul>
@@ -369,9 +67,7 @@
           <li>Any message you choose to include</li>
         </ul>
         <p>We do not use tracking cookies, advertising pixels, or fingerprinting scripts. We do not collect data passively as you browse this site.</p>
-
         <hr class="legal-divider">
-
         <h2>How We Use Your Information</h2>
         <p>Information submitted through our contact form is used solely to respond to your inquiry. We will:</p>
         <ul>
@@ -379,35 +75,23 @@
           <li>Follow up about a potential project if you've expressed interest</li>
         </ul>
         <p>We will not add you to a mailing list, sell your information to third parties, or use it for any purpose unrelated to your inquiry.</p>
-
         <hr class="legal-divider">
-
         <h2>Third-Party Services</h2>
         <p>Our contact form uses <a href="https://web3forms.com" target="_blank" rel="noopener">Web3Forms</a> to process and deliver form submissions. When you submit the contact form, your data is transmitted to Web3Forms' servers and then forwarded to our email. Please review <a href="https://web3forms.com/privacy" target="_blank" rel="noopener">Web3Forms' privacy policy</a> for details on how they handle data.</p>
         <p>All fonts are self-hosted on this site. No font requests are made to third-party servers.</p>
-
         <hr class="legal-divider">
-
         <h2>Data Retention</h2>
         <p>We retain contact form submissions only as long as necessary to respond to your inquiry and manage a potential business relationship. If you would like your information removed, contact us at <a href="mailto:hello@threadandpixel.com">hello@threadandpixel.com</a> and we will delete it promptly.</p>
-
         <hr class="legal-divider">
-
         <h2>Your Rights</h2>
         <p>You have the right to request access to, correction of, or deletion of any personal information you have provided to us. To exercise these rights, email us at <a href="mailto:hello@threadandpixel.com">hello@threadandpixel.com</a>.</p>
-
         <hr class="legal-divider">
-
         <h2>Children's Privacy</h2>
         <p>This website is not directed at children under the age of 13 and we do not knowingly collect personal information from children.</p>
-
         <hr class="legal-divider">
-
         <h2>Changes to This Policy</h2>
         <p>We may update this policy from time to time. When we do, we'll update the "last updated" date at the top of this page. Continued use of the site after changes constitutes acceptance of the updated policy.</p>
-
         <hr class="legal-divider">
-
         <h2>Contact</h2>
         <p>For any questions about this privacy policy, please contact us:</p>
         <ul>
@@ -415,46 +99,48 @@
           <li>Phone: <a href="tel:+14233145206">(423) 314-5206</a></li>
           <li>Address: 123 Market Street, Chattanooga, TN 37402</li>
         </ul>
-
       </div>
     </div>
+  </div>
   </main>
-
-  <footer>
-    <div class="container">
-      <div class="footer-bottom">
-        <p class="footer-copy">&copy; 2026 Thread &amp; Pixel, LLC. Chattanooga, TN.</p>
-        <nav class="footer-legal" aria-label="Legal navigation">
-          <a href="/privacy.html">Privacy Policy</a>
-          <a href="/terms.html">Terms</a>
-          <a href="/">Home</a>
-        </nav>
-      </div>
+<footer class="foot"><div class="wrap">
+  <div class="foot-grid">
+    <div>
+      <a class="logo" href="/"><img src="/favicon.svg" width="28" height="28" alt="" loading="lazy">Thread <em>&amp;</em> Pixel</a>
+      <p>Web design and development for Chattanooga's small businesses. Built local, built to last.</p>
+      <address>
+        <span>Thread &amp; Pixel · Chattanooga, TN</span>
+        <span>Serving the Greater Chattanooga Area</span>
+        <a href="tel:+14233145206">(423) 314-5206</a>
+        <a href="mailto:hello@threadandpixel.com">hello@threadandpixel.com</a>
+        <a href="https://www.google.com/maps/place/Thread+and+Pixel/data=!4m2!3m1!1s0x0:0xa557803578e78e8b" rel="noopener" target="_blank">Find us on Google</a>
+      </address>
     </div>
-  </footer>
-
-  <script>
-    const toggle = document.getElementById('nav-toggle');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const mobileClose = document.getElementById('mobile-close');
-
-    function openMenu() {
-      mobileMenu.classList.add('open');
-      toggle.setAttribute('aria-expanded', 'true');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeMenu() {
-      mobileMenu.classList.remove('open');
-      toggle.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
-    }
-
-    toggle.addEventListener('click', openMenu);
-    mobileClose.addEventListener('click', closeMenu);
-    mobileMenu.querySelectorAll('a').forEach(l => l.addEventListener('click', closeMenu));
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
-  </script>
-
+    <nav aria-label="Services"><p class="footer-col-title">Services</p><ul>
+      <li><a href="/services/web-design-chattanooga/">Web Design</a></li>
+      <li><a href="/services/local-seo-chattanooga/">Local SEO</a></li>
+      <li><a href="/services/">Maintenance &amp; AI</a></li>
+      <li><a href="/web-design-for/">By Industry</a></li>
+    </ul></nav>
+    <nav aria-label="Company"><p class="footer-col-title">Company</p><ul>
+      <li><a href="/#why">About</a></li>
+      <li><a href="/work/">Client Work</a></li>
+      <li><a href="/blog/">Blog</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+      <li><a href="/#cta">Contact</a></li>
+    </ul></nav>
+    <nav aria-label="Service areas"><p class="footer-col-title">Serving</p><ul>
+      <li><a href="/web-design/north-shore/">North Shore</a></li>
+      <li><a href="/web-design/southside/">Southside</a></li>
+      <li><a href="/web-design/hixson/">Hixson</a></li>
+      <li><a href="/web-design/cleveland-tn/">Cleveland, TN</a></li>
+      <li><a href="/web-design/dalton-ga/">Dalton, GA</a></li>
+      <li><a href="/web-design/">All areas</a></li>
+    </ul></nav>
+    <div><p class="footer-col-title">Hours</p><p>Monday–Friday<br>9:00 AM – 5:00 PM</p></div>
+  </div>
+  <div class="legal"><span>&copy; 2026 Thread &amp; Pixel, LLC. All rights reserved. Chattanooga, TN.</span>
+    <nav aria-label="Legal"><a href="/privacy">Privacy Policy</a><a href="/terms">Terms</a><a href="/sitemap.xml">Sitemap</a></nav></div>
+</div></footer>
 </body>
 </html>
