@@ -4,7 +4,13 @@ Landing page for Thread & Pixel — a Chattanooga, TN based web design and devel
 
 ## Stack
 
-Single-file static site (`index.html`) with embedded CSS and vanilla JS. No build step, no dependencies.
+Plain static HTML/CSS/JS — no build step, no dependencies. Every page is a standalone `index.html` (clean URLs, served by Cloudflare Pages).
+
+- `assets/site.css` — the shared design system ("running stitch meets pixel grid": forest/copper/linen palette, Fraunces + Inter Tight + JetBrains Mono, dashed stitch details)
+- `assets/site.js` — mobile menu, scroll reveals, and the Web3Forms contact-form handler (only runs on pages with `#contact-form`)
+- `fonts/` — self-hosted, latin-subset WOFF2 (Fraunces roman/italic, Inter Tight, JetBrains Mono)
+- `og-image.html` — source for `og-image.jpg` (1200×630 social share image; screenshot it at 1200×630 to regenerate)
+- `404.html` — custom not-found page (also stops Cloudflare Pages from serving the homepage for unknown URLs)
 
 ## Contact Form
 
@@ -33,8 +39,7 @@ Drop `index.html` (and any assets) into any static host — Netlify, Vercel, Git
 
 ## SEO
 
-- JSON-LD `LocalBusiness` schema
-- Open Graph + Twitter Card meta tags
-- Geo targeting meta tags
-- Semantic HTML5 with proper heading hierarchy
-- Sitemap link hint at `/sitemap.xml` (create separately)
+- One `<h1>` per page, unique title + meta description, canonical, Open Graph + Twitter tags on every page
+- JSON-LD: homepage `@graph` with `Organization`, `WebSite`, `LocalBusiness`/`ProfessionalService` (name, phone, email, city-level address, `areaServed`, hours, service catalog), `WebPage`, `BreadcrumbList`, `FAQPage`; inner pages keep their `Service`/`BlogPosting`/`FAQPage` blocks and all have a `BreadcrumbList`
+- `sitemap.xml` (all 23 indexable URLs; privacy and terms stay `noindex` as before) and `robots.txt`
+- NAP is identical everywhere: **Thread & Pixel · Chattanooga, TN · (423) 314-5206 · hello@threadandpixel.com**
